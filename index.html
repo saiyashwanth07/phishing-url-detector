@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI-Powered Phishing Detection System</title>
+    <style>
+        body { font-family: Arial; background:#f4f6f9; }
+        .box {
+            width:500px; margin:80px auto; background:white;
+            padding:30px; border-radius:10px; text-align:center;
+            box-shadow:0 0 10px #ccc;
+        }
+        input { width:90%; padding:10px; font-size:16px; }
+        button { padding:10px 25px; margin-top:15px; }
+        .result { margin-top:20px; padding:15px; border-radius:5px; }
+        .safe { background:#d4edda; }
+        .phishing { background:#f8d7da; }
+        .suspicious { background:#fff3cd; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>AI-Powered Phishing Detection System</h2>
+
+    <form method="POST">
+        <input type="text" name="url" placeholder="Enter URL here" required value="{{ url or '' }}">
+        <br>
+        <button type="submit">Scan</button>
+    </form>
+
+    {% if verdict %}
+    <div class="result {{ verdict.lower() }}">
+        
+        <h3>Result: {{ verdict }}</h3>
+        
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
